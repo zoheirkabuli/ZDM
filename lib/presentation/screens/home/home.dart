@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:zdm/presentation/widgets/common/download_progress_card_example.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
@@ -7,21 +8,19 @@ class HomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        leading: IconButton(
-          color: Colors.white,
-          onPressed: () {
-            ScaffoldMessenger.of(
-              context,
-            ).showSnackBar(const SnackBar(content: Text('This is a Menu')));
-          },
-          icon: const Icon(Icons.menu),
-        ),
-        title: Align(
-          alignment: Alignment.bottomLeft,
-          child: Text('ZDM', style: TextStyle(color: Colors.white)),
-        ),
+        title: const Text('ZDM'),
+        actions: [
+          IconButton(
+            onPressed: () {
+              ScaffoldMessenger.of(
+                context,
+              ).showSnackBar(const SnackBar(content: Text('This is a Menu')));
+            },
+            icon: const Icon(Icons.menu),
+          ),
+        ],
       ),
-      body: const Center(child: Text('Home')),
+      body: const DownloadProgressCardExample(),
     );
   }
 }
